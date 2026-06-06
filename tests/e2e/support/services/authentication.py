@@ -1,6 +1,6 @@
-from json import dumps
-
 from playwright.sync_api import Browser, BrowserContext, Page
+
+from json import dumps
 
 
 def create_authenticated_page(
