@@ -1,5 +1,6 @@
 from re import Pattern
 
+import allure
 from playwright.sync_api import Page, expect
 
 
@@ -7,6 +8,7 @@ class BasePage:
     def __init__(self, page: Page):
         self.page = page
 
+    @allure.step('Open {url}')
     def open(self, url: str):
         self.page.goto(url, wait_until='domcontentloaded')
 

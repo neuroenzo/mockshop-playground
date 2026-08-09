@@ -23,7 +23,9 @@ class TestLogIn:
         creds = user_role_factory(role_name)
         ui_login_page.open(f'{env_config.url_schema}{env_config.shop_url}')
         ui_login_page.check_welcome_title()
-        ui_login_page.fill_login_form(email=creds['email'], password=creds['password'])
+        ui_login_page.fill_login_form(
+            email=creds['email'],
+            password=creds['password']
+        )
         ui_login_page.click_login_button()
-        main_page.should_be_logged_in()
-        main_page.should_have_user_email(creds['email'])
+        main_page.should_be_logged_in(creds['email'])

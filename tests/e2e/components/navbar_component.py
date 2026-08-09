@@ -18,7 +18,7 @@ class NavbarComponent(BaseComponent):
     def should_have_email(self, expected_email: str) -> None:
         self._expect_visible(self.user_email_link, expected_email)
 
-    def should_be_logged_in(self) -> None:
+    def should_have_enabled_logout_button(self) -> None:
         self._expect_enabled(self.logout_button)
 
     def click_logout(self) -> None:
