@@ -15,7 +15,7 @@ class TestLogIn:
     def test_login_different_roles(
             self,
             ui_login_page: LoginPage,
-            ui_main_page: MainPage,
+            main_page: MainPage,
             user_role_factory,
             role_name: str,
             env_config: AuthConfig
@@ -25,5 +25,5 @@ class TestLogIn:
         ui_login_page.check_welcome_title()
         ui_login_page.fill_login_form(email=creds['email'], password=creds['password'])
         ui_login_page.click_login_button()
-        ui_main_page.should_be_logged_in()
-        ui_main_page.should_have_user_email(creds['email'])
+        main_page.should_be_logged_in()
+        main_page.should_have_user_email(creds['email'])

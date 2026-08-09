@@ -1,32 +1,26 @@
-import pytest
+from collections.abc import Generator
 
+import pytest
 from playwright.sync_api import Page
 
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
-
-
-
-@pytest.fixture
-def ui_login_page(page: Page) -> LoginPage:
-    return LoginPage(page=page)
+from support.utils.reports import finalize_tracing, setup_tracing
 
 
 @pytest.fixture
-def ui_main_page(page: Page) -> MainPage:
-    return MainPage(page=page)
+def prepared_page(request, page: Page) -> Generator[Page, None, None]:
+    """Playwright page + tracing + fail attachments (pytest-playwright `page`)."""
+    setup_tracing(request, page)
+    yield page
+    finalize_tracing(request, page)
 
 
 @pytest.fixture
-def admin(get_admin: Page) -> MainPage:
-    return MainPage(page=get_admin)
+def ui_login_page(prepared_page: Page) -> LoginPage:
+    return LoginPage(page=prepared_page)
 
 
 @pytest.fixture
-def buyer(get_buyer: Page) -> MainPage:
-    return MainPage(page=get_buyer)
-
-
-@pytest.fixture
-def seller(get_seller: Page) -> MainPage:
-    return MainPage(page=get_seller)
+def main_page(prepared_page: Page) -> MainPage:
+    return MainPage(page=prepared_page)
