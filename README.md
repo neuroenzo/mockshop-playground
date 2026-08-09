@@ -1,10 +1,10 @@
-# MockyShop
+## MockyShop
 
 Full-stack e-commerce demo application.
 
 Full-stack e-commerce demo: Next.js 16 (App Router) + FastAPI + PostgreSQL + Docker.
 
-## Tech Stack
+### Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -14,7 +14,7 @@ Full-stack e-commerce demo: Next.js 16 (App Router) + FastAPI + PostgreSQL + Doc
 | Auth | JWT (bcrypt), OAuth2 password flow |
 | Infra | Docker Compose, Nginx |
 
-## Quick Start
+### Quick Start
 
 ```bash
 # 1. Clone
@@ -29,7 +29,7 @@ cp .env.example backend/.env
 docker compose up -d --build
 ```
 
-## Ports
+### Ports
 
 | Port | Service | URL |
 |---|---|---|
@@ -38,7 +38,7 @@ docker compose up -d --build
 | `8000` | FastAPI (direct) | http://localhost:8000 |
 | `5434` | PostgreSQL (host) | `localhost:5434` |
 
-## Default Credentials
+### Default Credentials
 
 After first startup, an admin user is auto-created (configurable via `ADMIN_EMAIL` / `ADMIN_PASSWORD` env vars):
 
@@ -47,7 +47,7 @@ After first startup, an admin user is auto-created (configurable via `ADMIN_EMAI
 
 Register additional users (buyer/seller) at `/register`.
 
-## Environment Variables
+### Environment Variables
 
 | Variable | Default | Description |
 |---|---|---|
@@ -57,7 +57,7 @@ Register additional users (buyer/seller) at `/register`.
 | `ADMIN_PASSWORD` | `admin123` | Auto-seeded admin password |
 | `NEXT_PUBLIC_API_URL` | `""` (uses `/api` rewrite) | Override backend URL for dev |
 
-## Project Structure
+### Project Structure
 
 ```
 ├── backend/          # FastAPI app
@@ -80,7 +80,7 @@ Register additional users (buyer/seller) at `/register`.
 └── docker-compose.yml
 ```
 
-## Features
+### Features
 
 - Browse products with search, filter, sort, pagination
 - Product detail page with multiple images
@@ -91,7 +91,7 @@ Register additional users (buyer/seller) at `/register`.
 - Seller panel: product CRUD with image upload
 - Responsive design (Tailwind CSS v4 / Tailstore theme)
 
-## Development
+### Development
 
 ```bash
 # Rebuild after changes
