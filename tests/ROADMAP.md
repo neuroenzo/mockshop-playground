@@ -1,13 +1,8 @@
-## Tests Roadmap
+### Tests Roadmap
 
 ### Current State
 
-UI e2e tests for authorization (pytest + Playwright):
-- Parameterized login for 3 roles (admin, buyer, seller)
-- Page Object Model (LoginPage, MainPage)
-- Component Object Model (NavbarComponent)
-- Credentials from `.env` via pydantic-settings
-- Allure reporting with screenshots on failure
+- **UI e2e tests for authorization (pytest + Playwright)**
 
 ### Desired Future
 
